@@ -1,0 +1,25 @@
+.playerContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+.playerHeader {
+  color: green;
+}
+
+.displayedScore {
+  float: right;
+  margin-right: 6px;
+  font-weight: bold;
+}
+
+button {
+  margin-bottom: 1rem;
+}
+
+.addPlayers {
+  margin-bottom: 1rem;
+}
