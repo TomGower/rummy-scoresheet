@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 
-const AddPlayers = ({ submitFunc }) => (
-  <form onSubmit={submitFunc} className="add-players">
+const AddPlayers = ({ submitFunc }, ref) => (
+  <form onSubmit={submitFunc} ref={ref} className="add-players">
     <label htmlFor="playerName">
       Player name:
       <input type="text" id="playerName" name="playerName" />
@@ -12,7 +12,7 @@ const AddPlayers = ({ submitFunc }) => (
   </form>
 );
 
-export default AddPlayers;
+export default forwardRef(AddPlayers);
 
 AddPlayers.propTypes = {
   submitFunc: PropTypes.func.isRequired,

@@ -1,13 +1,14 @@
 /* eslint-disable no-console */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import AddPlayers from './components/AddPlayers';
 import ScoreUpdater from './components/ScoreUpdater';
 import ShowPlayer from './components/ShowPlayer';
 
-const Counter = () => {
+const App = () => {
   const [players, setPlayers] = useState([]);
   const [playerScores, setPlayerScores] = useState({});
   const [roundsPlayed, setRoundsPlayed] = useState(0);
+  const playerFormRef = useRef();
 
   const resetGame = () => {
     setPlayers([]);
@@ -21,7 +22,7 @@ const Counter = () => {
     if (!newPlayer) return;
     setPlayers([...players, newPlayer]);
     setPlayerScores({ ...playerScores, [newPlayer]: [0] });
-    document.getElementById('playerName').value = '';
+    playerFormRef.current.reset();
   };
 
   const updateScore = (event) => {
@@ -55,7 +56,7 @@ const Counter = () => {
       <button type="button" onClick={resetGame}>
         Start a New Game
       </button>
-      <AddPlayers submitFunc={addPlayer} />
+      <AddPlayers submitFunc={addPlayer} ref={playerFormRef} />
       <div>{`You have played ${roundsPlayed} rounds.`}</div>
       <ScoreUpdater updateScore={updateScore} players={players} />
       <div className="playerContainer">
@@ -67,4 +68,4 @@ const Counter = () => {
   );
 };
 
-export default Counter;
+export default App;

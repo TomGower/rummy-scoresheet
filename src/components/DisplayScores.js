@@ -2,8 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const DisplayScores = ({ scores }) => {
-  const total = scores.reduce((acc, curr) => acc + curr);
+const DisplayScores = ({ scores, total }) => {
   let subtotal = 0;
   return (
     <div>
@@ -50,4 +49,5 @@ export default DisplayScores;
 
 DisplayScores.propTypes = {
   scores: PropTypes.arrayOf(PropTypes.number).isRequired,
+  total: PropTypes.number.isRequired,
 };
