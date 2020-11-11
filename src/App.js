@@ -9,6 +9,7 @@ const App = () => {
   const [playerScores, setPlayerScores] = useState({});
   const [roundsPlayed, setRoundsPlayed] = useState(0);
   const playerFormRef = useRef();
+  const scoreRef = useRef();
 
   const resetGame = () => {
     setPlayers([]);
@@ -32,19 +33,21 @@ const App = () => {
     players.forEach((player) => {
       if (target[player].value) {
         let oldPlayerScore = oldScores[player];
+        // this if/else block could be a ternary operator, but I think this looks better
         if (oldPlayerScore.length === 1 && oldPlayerScore[0] === 0) {
           oldPlayerScore = [+target[player].value];
         } else {
           oldPlayerScore.push(+target[player].value);
         }
         oldScores = { ...oldScores, [player]: oldPlayerScore };
-        document.getElementById(`${player}score`).value = '';
       }
     });
     setPlayerScores(oldScores);
     setRoundsPlayed(roundsPlayed + 1);
+    scoreRef.current.reset();
   };
 
+  // This useEffect is for demonstration/testing purposes only, can be removed once app is done
   useEffect(() => {
     console.log('players', players);
     console.log('playerScores', playerScores);
@@ -52,13 +55,13 @@ const App = () => {
 
   return (
     <div>
-      <h1>Hi There</h1>
+      <h1>Gin Rummy Scoresheet</h1>
       <button type="button" onClick={resetGame}>
         Start a New Game
       </button>
       <AddPlayers submitFunc={addPlayer} ref={playerFormRef} />
       <div>{`You have played ${roundsPlayed} rounds.`}</div>
-      <ScoreUpdater updateScore={updateScore} players={players} />
+      <ScoreUpdater updateScore={updateScore} players={players} ref={scoreRef} />
       <div className="playerContainer">
         {players.map((player) => (
           <ShowPlayer playerName={player} key={player} scores={playerScores[player]} />

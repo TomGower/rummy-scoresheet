@@ -1,18 +1,16 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 
-const ScoreUpdate = ({ updateScore, players }) => {
+const ScoreUpdate = ({ updateScore, players }, ref) => {
   return (
-    <form onSubmit={updateScore}>
+    <form onSubmit={updateScore} ref={ref}>
       <div className="playerContainer">
-        {players.map((player) => {
-          return (
-            <label htmlFor={player} key={player}>
-              {`Points for ${player}:`}
-              <input type="text" id={`${player}score`} name={player} />
-            </label>
-          );
-        })}
+        {players.map((player) => (
+          <label htmlFor={player} key={player}>
+            {`Points for ${player}:`}
+            <input type="number" id={`${player}score`} name={player} />
+          </label>
+        ))}
       </div>
       <br />
       <input type="submit" value="Update Scores" disabled={players.length === 0} />
@@ -20,7 +18,7 @@ const ScoreUpdate = ({ updateScore, players }) => {
   );
 };
 
-export default ScoreUpdate;
+export default forwardRef(ScoreUpdate);
 
 ScoreUpdate.propTypes = {
   updateScore: PropTypes.func.isRequired,
