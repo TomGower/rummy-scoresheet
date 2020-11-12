@@ -22,11 +22,11 @@ const DisplayScores = ({ scores, total }) => {
               <div>
                 {'+ '}
                 <span className="displayedScore">{score}</span>
-                <br />
-                <hr />
-                <div className="displayedScore">{subtotal}</div>
-                <br />
               </div>
+              <br />
+              <hr />
+              <div className="displayedScore">{subtotal}</div>
+              <br />
             </div>
           );
         }

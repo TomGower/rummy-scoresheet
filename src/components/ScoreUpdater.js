@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 
-const ScoreUpdate = ({ updateScore, players }, ref) => {
+const ScoreUpdater = ({ updateScore, players }, ref) => {
   return (
     <form onSubmit={updateScore} ref={ref}>
       <div className="playerContainer">
@@ -18,9 +18,9 @@ const ScoreUpdate = ({ updateScore, players }, ref) => {
   );
 };
 
-export default forwardRef(ScoreUpdate);
+export default forwardRef(ScoreUpdater);
 
-ScoreUpdate.propTypes = {
+ScoreUpdater.propTypes = {
   updateScore: PropTypes.func.isRequired,
   players: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
