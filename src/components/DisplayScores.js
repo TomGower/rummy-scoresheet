@@ -12,7 +12,6 @@ const DisplayScores = ({ scores, total }) => {
           return (
             <div key={`${score}_${i}`}>
               <span className="displayedScore">{score}</span>
-              <br />
             </div>
           );
         }
@@ -23,7 +22,6 @@ const DisplayScores = ({ scores, total }) => {
                 {'+ '}
                 <span className="displayedScore">{score}</span>
               </div>
-              <br />
               <hr />
               <div className="displayedScore">{subtotal}</div>
               <br />
