@@ -1,5 +1,4 @@
-/* eslint-disable no-console */
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import AddPlayers from './components/AddPlayers';
 import ScoreUpdater from './components/ScoreUpdater';
 import ShowPlayer from './components/ShowPlayer';
@@ -46,12 +45,6 @@ const App = () => {
     setRoundsPlayed(roundsPlayed + 1);
     scoreRef.current.reset();
   };
-
-  // This useEffect is for demonstration/testing purposes only, can be removed once app is done
-  useEffect(() => {
-    console.log('players', players);
-    console.log('playerScores', playerScores);
-  }, [players, playerScores]);
 
   return (
     <div>
