@@ -11,7 +11,7 @@ const DisplayScores = ({ scores, total }) => {
         if (i === 0) {
           return (
             <div key={`${score}_${i}`}>
-              <span className="displayedScore">{score}</span>
+              <span className="displayedScore">{score}</span><br />
             </div>
           );
         }
