@@ -20,6 +20,12 @@ const App = () => {
     event.preventDefault();
     const newPlayer = event.target.playerName.value;
     if (!newPlayer) return;
+    if (players.indexOf(newPlayer) !== -1) {
+      // eslint-disable-next-line no-alert
+      alert('All players must have a different name.');
+      playerFormRef.current.reset();
+      return;
+    }
     setPlayers([...players, newPlayer]);
     setPlayerScores({ ...playerScores, [newPlayer]: [0] });
     playerFormRef.current.reset();
