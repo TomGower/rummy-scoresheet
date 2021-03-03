@@ -2,7 +2,7 @@
   "name": "rummy-scoresheet",
   "version": "1.0.0",
   "description": "A gin rummy scoresheet, built as a tool for learning Parcel",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "start": "parcel serve index.html --open",
     "build": "parcel build index.html",
