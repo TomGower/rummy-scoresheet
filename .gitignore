@@ -1,6 +1,8 @@
-.cache
-.parcel-cache
 .env
-node_modules
-dist
-index.*
+.parcel-cache
+.cache/
+coverage/
+dist/*
+!dist/index.html
+node_modules/
+*.log
