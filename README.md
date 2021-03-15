@@ -8,4 +8,6 @@ window on Parcel's default location, [Localhost:1234](http://localhost:1234/). A
 all data lives only in the single-page app and is not stored locally, so don't refresh unless you
 want to lose your data.
 
-As of March 2, 2021, this has been updated from Parcel 1 to Parcel 2. Hopefully, this doesn't create any issues.
+As of March 3, 2021, this has been updated from Parcel 1 to Parcel 2. Hopefully, this doesn't
+cause any issues. As Parcel 2 is an evolving product, run `npm update` after `npm install` if you
+have any problems.
