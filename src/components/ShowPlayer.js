@@ -12,7 +12,7 @@ const ShowPlayer = ({ playerName, scores }) => {
   return (
     <div>
       <h1 className="playerHeader">{`${playerName}: ${totalScore}`}</h1>
-      <DisplayScores scores={scores} total={totalScore} />
+      <DisplayScores scores={scores} total={totalScore} player={playerName} />
     </div>
   );
 };

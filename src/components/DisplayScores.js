@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const DisplayScores = ({ scores, total }) => {
+const DisplayScores = ({ scores, total, playerName }) => {
   let subtotal = 0;
   return (
     <div>
@@ -10,7 +10,7 @@ const DisplayScores = ({ scores, total }) => {
         subtotal += score;
         if (i === 0) {
           return (
-            <div key={`${score}_${i}`}>
+            <div key={`${playerName}_${score}_${i}`}>
               <span className="displayedScore">{score}</span>
               <br />
             </div>
@@ -18,7 +18,7 @@ const DisplayScores = ({ scores, total }) => {
         }
         if (i < scores.length - 1) {
           return (
-            <div key={`${score}_${i}`}>
+            <div key={`${playerName}_${score}_${i}`}>
               <div>
                 {'+ '}
                 <span className="displayedScore">{score}</span>
@@ -30,7 +30,7 @@ const DisplayScores = ({ scores, total }) => {
           );
         }
         return (
-          <div key={`${score}_${i}`}>
+          <div key={`${playerName}_${score}_${i}`}>
             <div>
               {'+ '}
               <span className="displayedScore">{score}</span>
@@ -49,4 +49,5 @@ export default DisplayScores;
 DisplayScores.propTypes = {
   scores: PropTypes.arrayOf(PropTypes.number).isRequired,
   total: PropTypes.number.isRequired,
+  playerName: PropTypes.string.isRequired,
 };
